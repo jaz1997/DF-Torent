@@ -21,13 +21,14 @@ function Server () {
     extended: true
   }))
 
-  if(config.server.htpasswd && config.server.htpasswd.length > 0){
-    this.basic = auth.basic({
-      realm: config.server.message,
-      file: config.server.htpasswd
-    })
     this.app.use(auth.connect(this.basic))
-  }
+   if(config.server.htpasswd && config.server.htpasswd.length > 0){
+     this.basic = auth.basic({
+       realm: config.server.message,
+       file: config.server.htpasswd
+     })
+     this.app.use(auth.connect(this.basic))
+   }
 
   this.server = http.createServer(this.app)
   var port = process.env.PORT || config.server.port
