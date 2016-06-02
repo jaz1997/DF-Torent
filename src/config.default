@@ -5,7 +5,7 @@
   "client": {
     "downloads": "downloads/",
     "timeout": 3000,
-    "maxTry": 3
+    "maxTry": 22
   },
   "server": {
     "port": 80,
